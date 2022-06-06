@@ -28,3 +28,21 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+.navbar navbar-inverse navbar-fixed-top{
+    background-color: #306b9f;
+    border-color: #080808;
+}
+/*Course layout*/
+.course{
+    list-style: none;
+    display: flex;
+}
+.course > li{
+    position: relative;
+    margin-bottom: 30px;
+}
+.course > li .details{
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
