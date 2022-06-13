@@ -8,8 +8,8 @@
     <ul>
         @foreach (var course in Model)
         {
-            <li>
-                <div class="date">
+            <li style="position: relative; margin-bottom: 30px; ">
+                <div class="date" style="text-align: center; background-color: #d41d50; color: white; width: 60px; border-radius: 8px;">
                     <div class="month">
                         @course.DateTime.ToString("MM")
                     </div>
@@ -20,7 +20,9 @@
                 <div class="details">
                     <span class="lecturer">
                         @course.Lectuser.Name
+                        <button class="btn btn-default btn-sm js-toggle-follow" data-user-id ="@course.LectuserId">Follow</button>
                     </span>
+                    <br/>
                     <span class="category">
                         @course.Category.Name
                     </span>
@@ -45,7 +47,17 @@
                     .fail(function()  {
                     alert("Something failed!");
                     });
-             });
+            });
+            $(".js-toggle-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+                    .done(function () {
+                        button.text("Following");
+                    })
+                    .fail(function () {
+                        alert("Something failed");
+                    });
+            });
         });
     </script>
 }
