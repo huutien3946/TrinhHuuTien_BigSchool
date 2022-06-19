@@ -9,6 +9,7 @@ namespace TrinhHuuTien_BigSchool.Models
     public class Course
     {
         public int Id { get; set; }
+        public bool IsCanceled { get; set; }
 
         public ApplicationUser Lectuser { get; set; }
         [Required]

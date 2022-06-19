@@ -1,0 +1,32 @@
+﻿@model TrinhHuuTien_BigSchool.ViewModels.CourseViewModel
+@{
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Attending</h2>
+<ul>
+    @foreach (var course in Model.UpComingCourses)
+    {
+        <li style="position: relative; margin-bottom: 30px; ">
+            <div class="date" style="text-align: center; background-color: #d41d50; color: white; width: 60px; border-radius: 8px;">
+                <div class="month">
+                    @course.DateTime.ToString("MM")
+                </div>
+                <div class="day">
+                    @course.DateTime.ToString("dd")
+                </div>
+            </div>
+            <div class="details">
+                <span class="lecturer">
+                    @course.Lectuser.Name
+                </span>
+                <br />
+                <span class="category">
+                    @course.Category.Name
+                </span>
+            </div>
+        </li>
+    }
+</ul>
+
